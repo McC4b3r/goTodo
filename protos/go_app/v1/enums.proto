@@ -1,0 +1,13 @@
+syntax = "proto3";
+package go_app.v1;
+
+enum HelloType {
+  HELLO_GENERIC = 0;
+  HELLO_SPECIFIC = 1;
+}
+
+enum TodoType {
+  TODO_GENERIC = 0;
+  TODO_SPECIFIC = 1;
+}
+

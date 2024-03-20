@@ -1,0 +1,39 @@
+syntax = "proto3";
+package go_app.v1;
+
+import "go_app/v1/requests.proto";
+import "google/api/annotations.proto";
+
+service Api {
+  // Health check
+  rpc Healthy(Empty) returns (Empty) {
+    option (google.api.http) = {get: "/healthy"};
+  }
+  // Readiness check
+  rpc Ready(Empty) returns (Empty) {
+    option (google.api.http) = {get: "/ready"};
+  }
+
+  rpc UpsertTodos(UpsertTodosRequest) returns (Todos) {
+    option (google.api.http) = {
+      post: "/v1/todos"
+      body:"*"
+    };
+  }
+  rpc DeleteTodos(DeleteTodosRequest) returns (DeleteTodosResponse) {
+    option (google.api.http) = {
+      delete: "/v1/todos"
+    };
+  }
+  rpc ListTodos(ListTodosRequest) returns (Todos) {
+    option (google.api.http) = {
+      get: '/v1/todos/list'
+    };
+  }
+  rpc GetTodos(GetTodosRequest) returns (Todos) {
+    option (google.api.http) = {
+      post: "/v1/todos/get"
+    };
+  }
+}
+

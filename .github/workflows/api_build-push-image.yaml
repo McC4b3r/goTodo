@@ -1,0 +1,15 @@
+name: Build and push image to image host
+on:
+  release:
+    types: [created]
+jobs:
+  build-push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and push image to quay.io
+        uses: catalystsquad/action-build-push-image-quay@v1
+        with:
+          docker-context: "./"
+          docker-file: "./Dockerfile"
+          username: ${{ secrets.QUAY_DOCKER_REGISTRY_USER }}
+          password: ${{ secrets.QUAY_DOCKER_REGISTRY_PASSWORD }}

@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 69be80f
+_src_path: https://github.com/catalystcommunity/copier-go-gorm-api
+codeowners_group: engineers
+create_codeowners: true
+create_settings: true
+create_workflows: true
+db_choice: Cockroach
+enable_pull_request_test: true
+full_project_name: github.com/mcc4b3r/go_app
+githost: github
+github_private_access: false
+grpc_health_probe: false
+image_host: quay
+license_type: apache2
+organization: mcc4b3r
+release_method: semantic-release
+repo_description: github.com/mcc4b3r/go_app
+short_project_name: go_app
