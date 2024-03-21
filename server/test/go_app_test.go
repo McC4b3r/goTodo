@@ -27,11 +27,11 @@ func (s *Go_appSuite) SetupSuite() {
 
 func assertProtoEqualitySortById(t *testing.T, expected, actual interface{}, opts ...cmp.Option) {
 	theOpts := []cmp.Option{
-		cmpopts.SortSlices(func(x, y *go_appv1.Hello) bool {
+		cmpopts.SortSlices(func(x, y *go_appv1.Todo) bool {
 			return *x.Id < *y.Id
 		}),
 		protocmp.Transform(),
-		protocmp.SortRepeated(func(x, y *go_appv1.Hello) bool {
+		protocmp.SortRepeated(func(x, y *go_appv1.Todo) bool {
 			return *x.Id < *y.Id
 		}),
 	}
