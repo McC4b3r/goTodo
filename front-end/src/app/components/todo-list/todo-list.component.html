@@ -1,1 +1,17 @@
-<p>todo-list works!</p>
+<div class="todo-list">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <<ng-container *ngFor="let todo of todos">
+        <app-todo-item [todo]="todo"></app-todo-item>
+        </ng-container>
+    </tbody>
+  </table>
+</div>

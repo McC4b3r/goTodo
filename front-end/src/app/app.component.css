@@ -58,12 +58,9 @@ main {
   position: relative;
 }
 
-.angular-logo {
-  max-width: 9.2rem;
-}
-
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   width: 100%;
   max-width: 700px;

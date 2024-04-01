@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { V1Todo } from '../../../../../protos/clients/ts/src/models';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './todo-item.component.css'
 })
 export class TodoItemComponent {
-
+  @Input() todo!: V1Todo;
 }
