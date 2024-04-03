@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <!-- todo-list.component.html -->
+=======
+>>>>>>> dd2550794e41b87870bfb030aafc166cd14fdd3a
 <div class="todo-list">
   <table>
     <thead>
@@ -10,6 +13,7 @@
       </tr>
     </thead>
     <tbody>
+<<<<<<< HEAD
       <ng-container *ngFor="let todo of todos">
         <tr>
           <td>{{ todo.id }}</td>
@@ -18,6 +22,11 @@
           <td>{{ todo.completed ? 'Yes' : 'No' }}</td>
         </tr>
       </ng-container>
+=======
+      <<ng-container *ngFor="let todo of todos">
+        <app-todo-item [todo]="todo"></app-todo-item>
+        </ng-container>
+>>>>>>> dd2550794e41b87870bfb030aafc166cd14fdd3a
     </tbody>
   </table>
 </div>

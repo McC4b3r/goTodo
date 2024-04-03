@@ -15,11 +15,8 @@ import { of } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = `World's best Angular-Go Todo App`;
   todos: V1Todo[] | undefined;
-  error: any;
-  newTodoText: string = '';
-  newTodo: V1Todo | undefined;
+  title = `World's Best Angular-Go Todo App`;
 
   constructor(private todoService: TodoService) { }
 
@@ -28,45 +25,8 @@ export class AppComponent implements OnInit {
   }
 
   fetchTodos(): void {
-    this.todoService.getTodos().pipe(
-      catchError((error) => {
-        console.error('Error fetching todos', error);
-        this.error = error;
-        return of([]);
-      })
-    ).subscribe(todos => {
-      console.log("todos:", todos)
-      return (this.todos = todos);
-    });
-  }
-
-  addTodo(): void {
-    if (!this.newTodoText.trim()) {
-      return; // Avoid adding empty todos
-    }
-
-    const newTodo: V1Todo = {
-      todoName: this.newTodoText,
-      todoType: 'TODO_GENERIC',
-      priority: 1,
-      completed: false,
-    };
-
-    if (!this.newTodoText.trim()) {
-      return; // Avoid adding empty todos
-    }
-
-    this.todoService.addTodo(newTodo).subscribe({
-      next: (todo) => {
-        // console.log('Added new todo:', todo);
-        console.log('this.todos:', this.todos);
-        this.todos = this.todos ? [...this.todos, todo] as V1Todo[] : [todo] as V1Todo[];
-        this.newTodoText = '';
-      },
-      error: (error) => {
-        console.error('Error adding todo', error);
-        this.error = error;
-      }
+    this.todoService.getTodos().subscribe((todos) => {
+      this.todos = todos;
     });
   }
 
