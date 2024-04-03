@@ -8,7 +8,8 @@ import (
 )
 
 func (p PostgresStorage) UpsertTodos(ctx context.Context, request *go_appv1.UpsertTodosRequest) ([]*go_appv1.Todo, error) {
-	todoProtos := go_appv1.TodoProtos(request.Todos)
+	todoProtos := go_appv1.TodoProtos(request.Data)
+	fmt.Println("HELLO THERE", todoProtos)
 	_, err := todoProtos.Upsert(ctx, db)
 	return todoProtos, err
 }
@@ -22,7 +23,7 @@ func (p PostgresStorage) ListTodos(ctx context.Context, request *go_appv1.ListTo
 	var orderBy string
 	err := protos.List(ctx, db, int(request.Limit), int(request.Offset), orderBy)
 	if err != nil {
-		return nil, fmt.Errorf("error listing Hellos: %w", err)
+		return nil, fmt.Errorf("error listing Todos: %w", err)
 	}
 	return protos, nil
 }

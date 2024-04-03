@@ -31,7 +31,7 @@ export interface V1UpsertTodosRequest {
      * @type {Array<V1Todo>}
      * @memberof V1UpsertTodosRequest
      */
-    todos?: Array<V1Todo>;
+    data?: Array<V1Todo>;
     /**
      * 
      * @type {Array<string>}
@@ -57,7 +57,7 @@ export function V1UpsertTodosRequestFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'todos': json['todos'] == null ? undefined : ((json['todos'] as Array<any>).map(V1TodoFromJSON)),
+        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(V1TodoFromJSON)),
         'fields': json['fields'] == null ? undefined : json['fields'],
     };
 }
@@ -68,7 +68,7 @@ export function V1UpsertTodosRequestToJSON(value?: V1UpsertTodosRequest | null):
     }
     return {
         
-        'todos': value['todos'] == null ? undefined : ((value['todos'] as Array<any>).map(V1TodoToJSON)),
+        'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(V1TodoToJSON)),
         'fields': value['fields'],
     };
 }

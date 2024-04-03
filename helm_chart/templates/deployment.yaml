@@ -63,6 +63,8 @@ spec:
               value: {{ .Values.prometheus.port | quote }}
             - name: PROMETHEUS_LATENCY_HISTOGRAMS_ENABLED
               value: {{ .Values.prometheus.latencyHistogramsEnabled | quote }}
+            - name: LOGLEVEL
+              value: {{ .Values.logLevel | quote }}
 
 
             - name: POSTGRES_URI

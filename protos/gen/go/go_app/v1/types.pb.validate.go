@@ -224,16 +224,14 @@ func (m *Todo) validate(all bool) error {
 
 	// no validation rules for TodoType
 
+	// no validation rules for TodoName
+
 	// no validation rules for Priority
 
 	// no validation rules for Completed
 
 	if m.Id != nil {
 		// no validation rules for Id
-	}
-
-	if m.TodoName != nil {
-		// no validation rules for TodoName
 	}
 
 	if len(errors) > 0 {

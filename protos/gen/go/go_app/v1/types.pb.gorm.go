@@ -235,7 +235,7 @@ type TodoGormModel struct {
 	TodoType int `json:"todo_type" fake:"{number:1,1}"`
 
 	// @gotags: fake:"{hipsterword}"
-	TodoName *string `json:"todo_name" fake:"{hipsterword}"`
+	TodoName string `json:"todo_name" fake:"{hipsterword}"`
 
 	// @gotags: fake:"{number:1,3}"
 	Priority int32 `json:"priority" fake:"{number:1,3}"`

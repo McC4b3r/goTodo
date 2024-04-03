@@ -29,7 +29,7 @@ message Todo {
   // @gotags: fake:"{number:1,1}"
   TodoType todo_type = 2 [json_name = "todo_type"];
   // @gotags: fake:"{hipsterword}"
-  optional string todo_name = 3 [json_name = "todo_name"];
+  string todo_name = 3 [json_name = "todo_name"];
   // @gotags: fake:"{number:1,3}"
   int32 priority = 4 [json_name = "priority"];
   // @gotags: fake:"skip"

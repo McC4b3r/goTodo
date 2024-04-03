@@ -1,0 +1,5 @@
+.todo-list {
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+}

@@ -31,7 +31,7 @@ func UpsertTodos(todos []*go_appv1.Todo) ([]*go_appv1.Todo, error) {
 	} else if response == nil {
 		return nil, nil
 	} else {
-		return response.Todos, err
+		return response.Data, err
 	}
 }
 
@@ -49,12 +49,12 @@ func ListTodos(limit, offset int, orderBy string) ([]*go_appv1.Todo, error) {
 	if err != nil {
 		return nil, err
 	}
-	return response.Todos, err
+	return response.Data, err
 }
 
 func GetTodosById(ids []string) ([]*go_appv1.Todo, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	response, err := ApiClient.GetTodos(ctx, &go_appv1.GetTodosRequest{Ids: ids})
-	return response.Todos, err
+	return response.Data, err
 }

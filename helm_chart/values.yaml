@@ -107,6 +107,8 @@ prometheus:
   port: 9090
   latencyHistogramsEnabled: true
 
+logLevel: "ERROR"
+
 gateway:
   enabled: true
   port: 6001

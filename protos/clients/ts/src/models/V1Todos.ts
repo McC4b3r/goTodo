@@ -31,7 +31,7 @@ export interface V1Todos {
      * @type {Array<V1Todo>}
      * @memberof V1Todos
      */
-    todos?: Array<V1Todo>;
+    data?: Array<V1Todo>;
 }
 
 /**
@@ -51,7 +51,7 @@ export function V1TodosFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
     }
     return {
         
-        'todos': json['todos'] == null ? undefined : ((json['todos'] as Array<any>).map(V1TodoFromJSON)),
+        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(V1TodoFromJSON)),
     };
 }
 
@@ -61,7 +61,7 @@ export function V1TodosToJSON(value?: V1Todos | null): any {
     }
     return {
         
-        'todos': value['todos'] == null ? undefined : ((value['todos'] as Array<any>).map(V1TodoToJSON)),
+        'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(V1TodoToJSON)),
     };
 }
 

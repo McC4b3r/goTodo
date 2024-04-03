@@ -286,7 +286,7 @@
     "v1Todos": {
       "type": "object",
       "properties": {
-        "todos": {
+        "data": {
           "type": "array",
           "items": {
             "type": "object",
@@ -298,7 +298,7 @@
     "v1UpsertTodosRequest": {
       "type": "object",
       "properties": {
-        "todos": {
+        "data": {
           "type": "array",
           "items": {
             "type": "object",

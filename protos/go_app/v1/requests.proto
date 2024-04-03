@@ -27,7 +27,7 @@ message Hellos {
 }
 
 message Todos {
-  repeated Todo todos = 1;
+  repeated Todo data = 1;
 }
 
 message UpsertHellosRequest {
@@ -36,7 +36,7 @@ message UpsertHellosRequest {
 }
 
 message UpsertTodosRequest {
-  repeated Todo todos = 1;
+  repeated Todo data = 1;
   repeated string fields = 2;
 }
 message DeleteTodosRequest {
