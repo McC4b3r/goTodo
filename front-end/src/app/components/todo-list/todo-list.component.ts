@@ -11,5 +11,5 @@ import { V1Todo } from '../../../../../protos/clients/ts/src/models';
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent {
-  @Input() todos: V1Todo[] | undefined;
+  @Input() todos!: V1Todo[];
 }

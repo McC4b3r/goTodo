@@ -9,9 +9,12 @@
       </tr>
     </thead>
     <tbody>
-      <<ng-container *ngFor="let todo of todos">
-        <app-todo-item [todo]="todo"></app-todo-item>
-        </ng-container>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.todoName }}</td>
+        <td>{{ todo.priority }}</td>
+        <td>{{ todo.completed ? 'Yes' : 'No' }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

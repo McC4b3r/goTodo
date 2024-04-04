@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import type { V1Todo } from '../../../protos/clients/ts/src/models'
 
+export interface TodoApiResponse {
+  data: V1Todo[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +15,10 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  getTodos(): Observable<V1Todo[]> {
-    return this.http.get<V1Todo[]>(this.apiUrl + '/list');
+  getTodos(): Observable<TodoApiResponse> {
+    return this.http.get<TodoApiResponse>(this.apiUrl + '/list');
   }
+
 
   addTodo(todo: V1Todo): Observable<{ data: V1Todo[] }> {
     const newTodo = { data: [todo] };

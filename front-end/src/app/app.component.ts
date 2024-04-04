@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoService } from './todo.service';
+import { TodoApiResponse, TodoService } from './todo.service';
 import { V1Todo } from '../../../protos/clients/ts/src/models';
 
 @Component({
@@ -13,7 +13,7 @@ import { V1Todo } from '../../../protos/clients/ts/src/models';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  todos: V1Todo[] | undefined;
+  todos: V1Todo[] = [];
   newTodoText = '';
   title = `World's Best Angular-Go Todo App`;
 
@@ -24,10 +24,11 @@ export class AppComponent implements OnInit {
   }
 
   fetchTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => {
-      this.todos = todos;
+    this.todoService.getTodos().subscribe((response: TodoApiResponse) => {
+      this.todos = response.data;
     });
   }
+
 
   addTodo(): void {
     if (!this.newTodoText.trim()) {
@@ -41,18 +42,18 @@ export class AppComponent implements OnInit {
       completed: false,
     };
 
-    this.todoService.addTodo(newTodo).subscribe({
+    console.log({ newTodo })
+
+    this.todoService.addTodo(newTodo as V1Todo).subscribe({
       next: (response) => {
-        console.log('Added new todo:', response.data);
-        this.todos = this.todos ? [...this.todos, ...response.data] : [...response.data];
-        this.newTodoText = ''; // Clear the input field
+        console.log('Received response:', response);
+        const receivedTodos = response.data;
+        this.todos = [...this.todos, ...receivedTodos];
+        this.newTodoText = '';
       },
       error: (error) => {
         console.error('Error adding todo', error);
       }
     });
   }
-
-
-
 }

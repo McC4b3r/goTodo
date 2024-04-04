@@ -6,7 +6,7 @@
       <input type="text" id="new-todo" placeholder="Add a new todo" [(ngModel)]="newTodoText">
       <button (click)="addTodo()">Add</button>
     </div>
-    <app-todo-list></app-todo-list>
+    <app-todo-list [todos]="todos"></app-todo-list>
   </div>
 </main>
 
